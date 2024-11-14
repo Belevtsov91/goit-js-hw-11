@@ -8,15 +8,24 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    
 
     <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
+    <!-- Контейнер для пошуку -->
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search images...">
+      <button id="search-button">Search</button>
+    </div>
+    
+    <!-- Індикатор завантаження -->
+    <div class="loader hidden" id="loader"></div>
+    
+    <!-- Контейнер для галереї -->
+    <div class="gallery" id="gallery"></div>
+
     </main>
 
-    <load src="./partials/footer.html" />
+   
 
     <script type="module" src="./main.js"></script>
   </body>
