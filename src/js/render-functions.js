@@ -1,14 +1,11 @@
 
 
-// src/render-functions.js
+
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-/**
- * Функція для рендерингу зображень у галерею
- * @param {Array} images - Масив зображень
- */
+
 export function renderImages(images) {
   const gallery = document.getElementById('gallery');
   const markup = images.map(image => `
@@ -28,10 +25,7 @@ export function renderImages(images) {
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
-/**
- * Функція для показу повідомлень про помилки
- * @param {string} message - Повідомлення
- */
+
 export function showError(message) {
   iziToast.error({
     title: 'Error',
@@ -40,10 +34,7 @@ export function showError(message) {
   });
 }
 
-/**
- * Функція для показу інформаційних повідомлень
- * @param {string} message - Повідомлення
- */
+
 export function showInfo(message) {
   iziToast.info({
     title: 'Info',
