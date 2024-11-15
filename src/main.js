@@ -1,32 +1,22 @@
-
-
-
-
-
-
 import { fetchImages } from './js/pixabay-api.js';
 import { renderImages, showError, showInfo } from './js/render-functions.js';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
 
-
 function showLoader() {
   const loader = document.getElementById('loader');
   loader.classList.remove('hidden');
 }
 
-
 function hideLoader() {
   const loader = document.getElementById('loader');
   loader.classList.add('hidden');
 }
-
 
 function clearGallery() {
   const gallery = document.getElementById('gallery');
@@ -34,11 +24,11 @@ function clearGallery() {
 }
 
 /**
- * Обробник події для кнопки пошуку
+ * Обробник події для сабміту форми пошуку
  * @param {Event} event
  */
 async function handleSearch(event) {
-  event.preventDefault();
+  event.preventDefault(); 
   
   const searchInput = document.getElementById('search-input');
   const query = searchInput.value.trim();
@@ -47,7 +37,6 @@ async function handleSearch(event) {
     showError('Please enter a search query.');
     return;
   }
-  
 
   clearGallery();
   showLoader();
@@ -70,12 +59,14 @@ async function handleSearch(event) {
 }
 
 
-const searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', handleSearch);
+const searchForm = document.getElementById('search-form');
+searchForm.addEventListener('submit', handleSearch);  // Тепер обробляється сабміт форми
 
 
 const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim();
-  searchButton.disabled = query === '';
+  searchButton.disabled = query === '';  
 });
